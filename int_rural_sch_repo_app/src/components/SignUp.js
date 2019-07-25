@@ -1,4 +1,4 @@
-import react from 'react'
+import React from 'react'
 
 class SignUp extends React.Component {
     constructor() {
@@ -13,47 +13,53 @@ class SignUp extends React.Component {
             phone: '' // optional/string/unique
           }
     }
+    
+    changeHandler(e){
+        e.preventDefault();
+        this.setState({[e.target.name]: e.target.value})
+    }
 
     render() {
         return (
-            <div>>
+            <div>
+                <h2>Create a New Account</h2>
                 <form>
                     <input type='text'
                         name='username'
                         placeholder='username'
                         value={this.state.username}
-                        onChange={} />
+                        onChange={this.changeHandler} /> <br />
                     <input type='password'
                         name='password'
                         placeholder='password'
                         value={this.state.password}
-                        onChange={} />
+                        onChange={this.changeHandler} /> <br />
                     <input type='text'
                         name='name'
                         placeholder='name'
                         value={this.state.name}
-                        onChange={} />
+                        onChange={this.changeHandler} /> <br />
                     <input type='text'
                         name='role_id'
                         placeholder='role_id'
                         value={this.state.role_id}
-                        onChange={} />
+                        onChange={this.changeHandler} /> <br />
                     <input type='text'
                         name='org_id'
                         placeholder='org_id'
                         value={this.state.org_id}
-                        onChange={} />
+                        onChange={this.changeHandler} /> <br />
                     <input type='text'
                         name='email'
                         placeholder='email'
                         value={this.state.email}
-                        onChange={} />
+                        onChange={this.changeHandler} /> <br />
                     <input type='text'
                         name='phone'
                         placeholder='phone'
                         value={this.state.phone}
-                        onChange={} />
-                    <button>SignIn</button>
+                        onChange={this.changeHandler} /> <br />
+                    <button>SignUp</button>
                 </form>
             </div>
         )
