@@ -1,6 +1,6 @@
 PROJECT NAME
 
-    International Rural School Report
+    International Rural School Report!
 
 DESCRIPTION
 
