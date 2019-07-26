@@ -9,7 +9,7 @@ class Login extends React.Component {
         }
     }
     
-    changeHandler(e){
+    changeHandler= (e) => {
         e.preventDefault();
         this.setState({[e.target.name] : e.target.value})
     }
