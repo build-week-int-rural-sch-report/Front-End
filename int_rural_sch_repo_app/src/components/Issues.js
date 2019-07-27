@@ -1,10 +1,12 @@
-import react from 'react'
-
+import React from 'react'
+import axios from 'axios'
 class Issues extends React.Component {
-    constructor(props){
+    constructor(){
         super()
     }
-
+    componentDidMount(){
+        axios
+    }
     render(){
         return(
             {}
