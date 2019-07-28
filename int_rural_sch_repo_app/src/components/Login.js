@@ -1,9 +1,10 @@
 import React from 'react'
 import axios from 'axios'
+import { withRouter } from 'react-router-dom'
 
 class Login extends React.Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             username : '',
             password : ''
@@ -20,7 +21,8 @@ class Login extends React.Component {
         const login = {username, password}
         e.preventDefault()
         axios.post('https://irsr-be-dev.herokuapp.com/auth/login', login)
-             .then((res)=>{localStorage.setItem("token", res.data.token)})
+             .then((res)=>{localStorage.setItem('token', res.data.token)})
+             .then(() => {this.props.history.push('/')})
              .catch((err) => {console.log(err)})
     }
 
@@ -45,4 +47,4 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+export default withRouter(Login);
