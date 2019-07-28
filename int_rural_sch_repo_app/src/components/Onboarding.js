@@ -2,7 +2,7 @@ import React from 'react'
 import Login from './Login'
 import SignUp from './SignUp';
 
-function LoginSignup() {
+function Onboarding() {
 return (
     <div>
         <Login />
@@ -11,4 +11,4 @@ return (
 )
 }
 
-export default LoginSignup;
+export default Onboarding;

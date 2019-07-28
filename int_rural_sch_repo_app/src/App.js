@@ -1,7 +1,8 @@
 import React from 'react';
-
+import {Route} from 'react-router-dom'
 import './App.css';
-import LoginSignup from './components/LoginSignup'
+import PrivateRoute from './components/PrivateRoute'
+import Onboarding from './components/Onboarding'
 import Issues from './components/Issues'
 
 class App extends React.Component {
@@ -11,8 +12,8 @@ class App extends React.Component {
   render() {
     return (
     <div className="App">
-      <LoginSignup />
-      <Issues />
+      <PrivateRoute path='/' exact component= {Issues} />
+      <Route path='/login' exact component={Onboarding} />
     </div>
     );
   }
