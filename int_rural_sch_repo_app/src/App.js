@@ -2,6 +2,7 @@ import React from 'react';
 
 import './App.css';
 import LoginSignup from './components/LoginSignup'
+import Issues from './components/Issues'
 
 class App extends React.Component {
   constructor(){
@@ -11,6 +12,7 @@ class App extends React.Component {
     return (
     <div className="App">
       <LoginSignup />
+      <Issues />
     </div>
     );
   }

@@ -1,18 +1,18 @@
 import React from 'react'
 
-function Issue(){
+function Issue(props){
     return(
         <div>
-           <h3>"id": 1</h3>
-           <p><strong> "name": "Issue 1"</strong></p>
-           <p>"comments": "Description here"</p>
-           <h3>"org_id": 1</h3>
-           <p><strong>"org_name": "Organization One"</strong></p>
-           <p><strong>"status_name": "Done"</strong><button>Edit</button></p>
-           <h3>"created_by": "user1"</h3>
-           <h6>"created_at": "2019-05-23T17:29:25.150Z"</h6>
-           <h4>"updated_by": "user1",</h4>
-           <h6> "updated_at": "2019-05-23T17:29:25.150Z"</h6>
+           <h3>id: {props.issue.id}</h3>
+           <p><strong> name: {props.issue.name}</strong></p>
+           <p>comments: {props.issue.comments}</p>
+           <h3>org_id: {props.issue.org_id}</h3>
+           <p><strong>org_name: {props.issue.org_name}</strong></p>
+           <p><strong>status_name: {props.issue.status_name}</strong><button>Edit</button></p>
+           <h3>created_by: {props.issue.created_by}</h3>
+           <h6>created_at: {props.issue.created_at}</h6>
+           <h4>updated_by: {props.issue.updated_by}</h4>
+           <h6> updated_at: {props.issue.updated_at}</h6>
         </div>
     )
 }
