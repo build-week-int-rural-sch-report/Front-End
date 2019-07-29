@@ -7,7 +7,7 @@ class SignUp extends React.Component {
             username: '', // required/string/unique
             password: '', // required/string
             name: '',     // required/string
-            role_id: 1,  // required/number
+            role_id: '',  // required/number
             org_id: '',  // required/number
             email: '',  // optional/string/unique
             phone: '', // optional/string/unique
@@ -31,7 +31,7 @@ class SignUp extends React.Component {
         const newUser = {username, password, name, role_id, org_id, email, phone}
         e.preventDefault();
         axios.post('https://irsr-be-dev.herokuapp.com/auth/register', newUser)
-             .then(res => {console.log(res)})
+             .then((res)=>{localStorage.setItem('token', res.data.token)})
              .catch(err => {console.log(err)})
     }
 
@@ -58,10 +58,10 @@ class SignUp extends React.Component {
                         value={this.state.name}
                         onChange={this.changeHandler} /> <br />
                     
-                    role_id:<select name='role_id' value={this.state.role_id} onChange={this.changeHandler}>
+                    role_name:<select name='role_id' value={this.state.role_id} onChange={this.changeHandler}>
                                {this.state.rolesData.map((role)=>{return <option key={role.id}value={role.id}>{role.name}</option>})} 
 						    </select> <br />
-                    org_id: <select name='org_id' value={this.state.org_id} onChange={this.changeHandler}>
+                    org_name: <select name='org_id' value={this.state.org_id} onChange={this.changeHandler}>
 						       {this.state.orgData.map((org)=>{return <option key={org.id}value={org.id}>{org.name}</option>})} 
 						    </select> <br />
                     

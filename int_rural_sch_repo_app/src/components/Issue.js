@@ -1,8 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Issue(props){
     return(
-        <div>
+        <Link to={`/issues/${props.issue.id}`}>
            <h3>id: {props.issue.id}</h3>
            <p><strong> name: {props.issue.name}</strong></p>
            <p>comments: {props.issue.comments}</p>
@@ -13,7 +14,7 @@ function Issue(props){
            <h6>created_at: {props.issue.created_at}</h6>
            <h4>updated_by: {props.issue.updated_by}</h4>
            <h6> updated_at: {props.issue.updated_at}</h6>
-        </div>
+        </Link>
     )
 }
 
