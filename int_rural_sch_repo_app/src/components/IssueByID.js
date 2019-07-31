@@ -16,13 +16,13 @@ class IssueByID extends React.Component {
 		}
         axios.get(`https://irsr-be-dev.herokuapp.com/issues/${id}`, {headers})
           .then(res => {this.setState({ issueByID: res.data })})
-          .catch(err => {console.err(err)}) 
+          .catch(err => {console.log(err)}) 
       }
     
      
     render(){
         if (!this.state.issueByID) {
-            return <div>Loading movie information...</div>;
+            return <div>Loading issue information...</div>;
           }
         return(
             <div>

@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import Issue from './Issue'
 
 class Issues extends React.Component {
@@ -21,7 +21,7 @@ class Issues extends React.Component {
 		}
         axios.get('https://irsr-be-dev.herokuapp.com/issues',{headers})
              .then((res) => {this.setState({issuesData: res.data})})
-             .catch(err => {console.log(err)})
+             .catch(() => {console.log( 'no data exist')})
 
         axios.get('https://irsr-be-dev.herokuapp.com/public/issue-status')
              .then(res => {this.setState({issue_status: res.data})})
@@ -35,16 +35,24 @@ class Issues extends React.Component {
     }
 
     submitHandler = (e) => {
+        e.preventDefault()
         const headers = {
+           // "Content-Type": "application/json",
 			Authorization: localStorage.getItem('token'),
         }
         const {name, status_id, comments, org_id} = this.state
         const newIssue = {name, status_id, comments, org_id }
-         e.preventDefault()
+         console.log('headers:', headers, 'newissue:', newIssue)
        
         axios.post('https://irsr-be-dev.herokuapp.com/issues', newIssue, {headers})
              .then((res)=>{this.setState({issuesData: res.data})})
              .catch(err => {console.log(err)})
+        this.setState({ 
+            name: '',
+            status_id: '',
+            comments: '',
+            org_id: ''
+                   })
         
     }
 
@@ -58,6 +66,7 @@ class Issues extends React.Component {
     render(){
         return(<div>
                  <button type='button' onClick={this.logout} >Logout</button>
+                 
                  {this.state.issuesData.map((issue, index) => {return <Issue key={index} issue={issue} />})}
                   <form onSubmit={this.submitHandler}>
                   Issue's name :<input type='text'
@@ -79,6 +88,7 @@ class Issues extends React.Component {
                            onChange={this.changeHandler} /> <br />          
                     <button type='submit'>Add Issue</button>
                   </form>
+                  <Link to={`/issues/org/${this.state.org_id}`}>See issues by organization</Link>
                </div> 
         )
     }

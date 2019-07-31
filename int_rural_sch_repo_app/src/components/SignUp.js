@@ -27,12 +27,23 @@ class SignUp extends React.Component {
       }
 
     signUp = (e)=> {
+        e.preventDefault();
         const {username, password, name, role_id, org_id, email, phone} = this.state
         const newUser = {username, password, name, role_id, org_id, email, phone}
-        e.preventDefault();
         axios.post('https://irsr-be-dev.herokuapp.com/auth/register', newUser)
-             .then((res)=>{localStorage.setItem('token', res.data.token)})
+             .then((res)=>{
+                 console.log('res:', res)
+                 localStorage.setItem('token', res.data.token)})
              .catch(err => {console.log(err)})
+        this.setState({
+            username: '', 
+            password: '', 
+            name: '',     
+            role_id: '',  
+            org_id: '',  
+            email: '',  
+            phone: ''
+              });
     }
 
     changeHandler = (e) => {

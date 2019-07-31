@@ -5,6 +5,7 @@ import PrivateRoute from './components/PrivateRoute'
 import Onboarding from './components/Onboarding'
 import Issues from './components/Issues'
 import IssueByID from './components/IssueByID'
+import IssuesByOrg from './components/IssuesByOrg'
 
 class App extends React.Component {
   constructor(){
@@ -16,6 +17,7 @@ class App extends React.Component {
       <PrivateRoute exact path='/'  component={Issues} />
       <Route exact path='/login'  component={Onboarding} />
       <Route path= '/issues/:id' render={(props) => <IssueByID {...props} />} />  
+      <Route path= '/issues/org/:org_id' render={(props) => <IssuesByOrg {...props} />} />  
     </div>
     );
   }
