@@ -10,7 +10,10 @@ class TeacherAtt extends React.Component{
         }
     }
     componentDidMount(){
-        axios.get('https://irsr-be-dev.herokuapp.com/teachers-attendance')
+        const headers = {
+            Authorization: localStorage.getItem('token'),
+        }
+        axios.get('https://irsr-be-dev.herokuapp.com/teachers-attendance', {headers})
              .then(res => {this.setState({teacherAttendance: res.data})})
              .catch(err => {console.log('Error:', err)})
     }

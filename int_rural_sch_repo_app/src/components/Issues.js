@@ -1,6 +1,5 @@
 import React from 'react'
 import axios from 'axios'
-import { withRouter, Link } from 'react-router-dom'
 import Issue from './Issue'
 
 class Issues extends React.Component {
@@ -56,16 +55,8 @@ class Issues extends React.Component {
         
     }
 
-    logout = (e) => {
-		e.preventDefault()
-
-		localStorage.removeItem('token')
-		this.props.history.push('/login')
-	}
-
     render(){
         return(<div>
-                 <button type='button' onClick={this.logout} >Logout</button>
                  
                  {this.state.issuesData.map((issue, index) => {return <Issue key={index} issue={issue} />})}
                   <form onSubmit={this.submitHandler}>
@@ -88,9 +79,8 @@ class Issues extends React.Component {
                            onChange={this.changeHandler} /> <br />          
                     <button type='submit'>Add Issue</button>
                   </form>
-                  <Link to={`/issues/org/${this.state.org_id}`}>See issues by organization</Link>
                </div> 
         )
     }
 }
-export default withRouter(Issues)
+export default Issues

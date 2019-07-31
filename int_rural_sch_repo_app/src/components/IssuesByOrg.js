@@ -23,7 +23,7 @@ class IssuesByOrg extends React.Component {
      
     render(){
         if (!this.state.issuesByOrg) {
-            return <div>Loading issues information...</div>;
+            return <div>Loading issues by org...</div>;
           }
         return(
             <div>

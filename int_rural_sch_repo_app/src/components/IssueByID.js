@@ -22,7 +22,7 @@ class IssueByID extends React.Component {
      
     render(){
         if (!this.state.issueByID) {
-            return <div>Loading issue information...</div>;
+            return <div>Loading issue by Id...</div>;
           }
         return(
             <div>
