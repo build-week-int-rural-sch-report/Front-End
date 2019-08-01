@@ -78,12 +78,10 @@ class SignUp extends React.Component {
                     
                     email:<input type='text'
                         name='email'
-                        placeholder='optional'
                         value={this.state.email}
                         onChange={this.changeHandler} /> <br />
                     phone:<input type='text'
                         name='phone'
-                        placeholder='optional'
                         value={this.state.phone}
                         onChange={this.changeHandler} /> <br />
                     <button type='submit'>SignUp</button>

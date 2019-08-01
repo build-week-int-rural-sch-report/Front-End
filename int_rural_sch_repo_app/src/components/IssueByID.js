@@ -18,7 +18,6 @@ class IssueByID extends React.Component {
           .then(res => {this.setState({ issueByID: res.data })})
           .catch(err => {console.log(err)}) 
       }
-    
      
     render(){
         if (!this.state.issueByID) {

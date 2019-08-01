@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { Table } from 'reactstrap'
 
 
 class TeacherAtt extends React.Component{
@@ -27,12 +28,35 @@ class TeacherAtt extends React.Component{
                 {this.state.teacherAttendance.map((teacher, index)=>{
                     return (
                         <div key={index}>
-                            <h3>{`id: ${teacher.id}`}</h3>
+                             <Table>
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Teacher Name</th>
+                                    <th>TimeIn</th>
+                                    <th>TimeOut</th>
+                                    <th>Tmm</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td>{teacher.id}</td>
+                                    <td>{teacher.name}</td>
+                                    <td>{teacher.date}</td>
+                                    <td>{teacher.in}</td>
+                                    <td>{teacher.out}</td>
+                                    <td>{teacher.tmm}</td>
+                                </tr>
+                                
+                                </tbody>
+                              </Table>
+                            {/* <h3>{`id: ${teacher.id}`}</h3>
                             <p>{`name: ${teacher.name}`}</p>
                             <p>{`date: ${teacher.date}`}</p>
                             <p>{`in: ${teacher.in}`}</p>
                             <p>{`out: ${teacher.out}`}</p>
-                            <p>{`tmm: ${teacher.tmm}`}</p>
+                            <p>{`tmm: ${teacher.tmm}`}</p> */}
                         </div>
                     )
                 })}

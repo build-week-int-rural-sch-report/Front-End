@@ -28,6 +28,8 @@ class Issues extends React.Component {
 
     }
 
+    updateIssues = (updatedIssues)=> {this.setState({issuesData: updatedIssues});}
+
     changeHandler = (e) => {
         e.preventDefault()
         this.setState({[e.target.name]:e.target.value})
@@ -36,7 +38,7 @@ class Issues extends React.Component {
     submitHandler = (e) => {
         e.preventDefault()
         const headers = {
-           // "Content-Type": "application/json",
+           
 			Authorization: localStorage.getItem('token'),
         }
         const {name, status_id, comments, org_id} = this.state
@@ -58,7 +60,7 @@ class Issues extends React.Component {
     render(){
         return(<div>
                  
-                 {this.state.issuesData.map((issue, index) => {return <Issue key={index} issue={issue} />})}
+                 {this.state.issuesData.map((issue, index) => {return <Issue key={index} issue={issue} updateIssues={this.updateIssues} />})}
                   <form onSubmit={this.submitHandler}>
                   Issue's name :<input type='text'
                            name='name'
@@ -69,12 +71,10 @@ class Issues extends React.Component {
 						    </select> <br />
                     comments :<input type='text'
                            name='comments'
-                           placeholder='optional'
                            value={this.state.comments}
                            onChange={this.changeHandler} /> <br />
                     org_id :<input type='text'
                            name='org_id'
-                           placeholder='optional'
                            value={this.state.org_id}
                            onChange={this.changeHandler} /> <br />          
                     <button type='submit'>Add Issue</button>

@@ -8,17 +8,13 @@ import TeacherAtt from './TeacherAtt'
 class Dashboard extends React.Component {
     constructor(){
         super()
-        this.state={
-            Org_id: 2,
+        this.state = {
+            org_id: ''
         }
     }
-    // changeHandler = (e)=>{
-    //     e.preventDefault()
-    //     this.setState({Org_id: e.target.value})
-    // }
-    changeHandler = (e) => {
+    changeHandler = (e)=>{
         e.preventDefault()
-        this.setState({[e.target.name]:e.target.value})
+        this.setState({org_id: e.target.value})
     }
      
     logout = (e) => {
@@ -33,10 +29,10 @@ class Dashboard extends React.Component {
             <div>
                 <nav>
                     <NavLink to='/' >Issues Log</NavLink>
-                    <NavLink to={`/issues/org/2`} >Issues By Org_Id </NavLink>
+                    <NavLink to={`/issues/org/${this.state.org_id}`} >Issues By Org_Id </NavLink>
                     <input  type='text'
                            name='name'
-                           value={this.state.name}
+                           value={this.state.org_id}
                            onChange={this.changeHandler}  />
                     <NavLink to='/teacherAtt'>Teacher attendance</NavLink>
                     <button type='button' onClick={this.logout} >Logout</button>
@@ -44,8 +40,8 @@ class Dashboard extends React.Component {
                
                 <Route exact path ='/' component={Issues} />
                 <Route exact path = '/teacherAtt' render={()=><TeacherAtt />} />
-                <Route exaxt path= '/issues/:id' render={(props) => <IssueByID {...props} />} />  
-                <Route exact path= '/issues/org/:org_id' render={(props) => <IssuesByOrg {...props} />} />  
+                <Route path= '/issues/:id' render={(props) => <IssueByID {...props} />} />  
+                <Route path= '/issues/org/:org_id' render={(props) => <IssuesByOrg {...props} />} />  
             </div>
         )
     }
