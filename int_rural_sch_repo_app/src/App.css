@@ -125,3 +125,45 @@
   color: red;
   text-decoration-line: underline
 }
+
+@media (max-width: 500px) {
+  
+  
+.Login {
+  width : 90%;
+  margin:0% auto;
+  text-align: center
+}
+
+.Signup {
+  width : 90%;
+  margin:2% auto;
+  
+}
+
+.IssueCard {
+  width: 90%;
+  border: 1.4px solid grey;
+  margin: 0% auto;
+  margin-bottom: 2%;
+  padding: 0 5%;
+}
+
+.Welcomediv {
+  width: 90%;
+  margin: 1% auto;
+  display: inline-block;
+  
+}
+
+.WelcomeP {
+  width: 80%;
+  padding:2%
+}
+
+.WelcomeImage {
+  width: 80%;
+  border-radius: 2%;
+}
+
+}
