@@ -24,7 +24,7 @@ class TeacherAtt extends React.Component{
             return <div>Loading teacher attendance...</div>;
           }
         return(
-            <div className='Teacher'>
+            <div className='Issues'>
                 <Table dark size='6'>
                 <thead>
                     <tr>
