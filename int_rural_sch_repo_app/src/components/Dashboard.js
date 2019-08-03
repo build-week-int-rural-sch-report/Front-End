@@ -21,8 +21,10 @@ class Dashboard extends React.Component {
      
     logout = (e) => {
 		e.preventDefault()
-
-		localStorage.removeItem('token')
+        localStorage.removeItem('name')
+        localStorage.removeItem('token')
+        localStorage.removeItem('org_name')
+        localStorage.removeItem('role_name')
 		this.props.history.push('/login')
 	}
 

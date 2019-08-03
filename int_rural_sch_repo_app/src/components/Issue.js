@@ -4,7 +4,12 @@ import axios from  'axios'
 import { Card, CardBody,CardHeader, Button, CardTitle, CardText } from 'reactstrap';
 
 class Issue extends React.Component {
-    
+     constructor(){
+         super()
+         this.state={
+             error:''
+         }
+     }
     deleteIssue = (e) => {
         e.preventDefault()
     
@@ -21,6 +26,7 @@ class Issue extends React.Component {
                 this.props.history.push('/issues')
             })
             .catch((err) => {
+                this.setState({error:'You are not Authorized to delete this issue'})
                console.log(err)
             })
     }
@@ -42,6 +48,7 @@ class Issue extends React.Component {
                     <h5>updated_by: {this.props.issue.updated_by}</h5>
                     <CardText><small>updated_at: {this.props.issue.updated_at}</small> </CardText>
                     <Button type='button' onClick={this.deleteIssue}>Delete Issue</Button>
+                    <h6 className='errormessage'>{this.state.error}</h6>
                 </CardBody>
             </Card>
         </Link>
