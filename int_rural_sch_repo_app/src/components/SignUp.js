@@ -6,13 +6,14 @@ class SignUp extends React.Component {
     constructor() {
         super();
         this.state= {
-            username: '', // required/string/unique
-            password: '', // required/string
-            name: '',     // required/string
-            role_id: '',  // required/number
-            org_id: '',  // required/number
-            email: '',  // optional/string/unique
-            phone: '', // optional/string/unique
+            username: '', 
+            password: '',
+            name: '',    
+            role_id: '',  
+            org_id: '',  
+            email: '',  
+            phone: '', 
+            error: '',
             orgData: [],
             rolesData:[]
           }
@@ -36,7 +37,10 @@ class SignUp extends React.Component {
              .then((res)=>{
                  console.log('res:', res)
                  localStorage.setItem('token', res.data.token)})
-             .catch(err => {console.log(err)})
+             .catch(err => {
+                 this.setState({error: 'One or more data is missing'})
+                 console.log(err)
+                })
         this.setState({
             username: '', 
             password: '', 
@@ -89,6 +93,7 @@ class SignUp extends React.Component {
                         onChange={this.changeHandler} /> <br />
                     <Button color="success" size="lg" type='submit' className='SignupButt'>Sign Up</Button>
                 </Form>
+                <h6 className='errormessage'>{this.state.error}</h6>
               </Jumbotron>
             </div>
         )

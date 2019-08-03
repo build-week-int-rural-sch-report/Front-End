@@ -8,7 +8,8 @@ class Login extends React.Component {
         super(props);
         this.state = {
             username : '',
-            password : ''
+            password : '',
+            error: ''
         }
     }
     
@@ -22,9 +23,17 @@ class Login extends React.Component {
         const login = {username, password}
         e.preventDefault()
         axios.post('https://irsr-be-dev.herokuapp.com/auth/login', login)
-             .then((res)=>{localStorage.setItem('token', res.data.token)})
+             .then((res)=>{
+                 localStorage.setItem('name', username)
+                 localStorage.setItem('token', res.data.token)
+                 localStorage.setItem('org_name', res.data.org_roles[0].org_name)
+                 localStorage.setItem('role_name', res.data.org_roles[0].roles[0].role_name)
+                })
              .then(() => {this.props.history.push('/')})
-             .catch((err) => {console.log(err)})
+             .catch((err) => {
+                 this.setState({error : 'The username or password you’ve entered doesn’t match any account.'})
+                 console.log(err)
+                })
     }
 
     render() {
@@ -47,7 +56,7 @@ class Login extends React.Component {
                         <Button color="primary" type='submit' className='Loginbutton'>Sign In</Button>
                       </FormGroup>
                     </Form>
-        
+                    <h6 className='errormessage'>{this.state.error}</h6>
                 </Jumbotron>
             </div>
         )

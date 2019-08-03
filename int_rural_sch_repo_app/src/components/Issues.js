@@ -12,6 +12,7 @@ class Issues extends React.Component {
             status_id: '',
             comments: '',
             org_id: '',
+            error:'',
             issue_status: [],
             fadeIn: true 
         }
@@ -49,7 +50,10 @@ class Issues extends React.Component {
        
         axios.post('https://irsr-be-dev.herokuapp.com/issues', newIssue, {headers})
              .then((res)=>{this.setState({issuesData: res.data})})
-             .catch(err => {console.log(err)})
+             .catch(err => {
+                this.setState({error : 'Bord Members are not allowed to add issues/ all data required'})
+                 console.log(err)
+                })
         this.setState({ 
             name: '',
             status_id: '',
@@ -90,6 +94,7 @@ class Issues extends React.Component {
                                 onChange={this.changeHandler} /> <br />          
                             <Button outline color="success" type='submit'>Add Issue</Button>
                         </Form>
+                        <h6 className='errormessage'>{this.state.error}</h6>
                     </Jumbotron>
                  </Fade>
                </div> 
