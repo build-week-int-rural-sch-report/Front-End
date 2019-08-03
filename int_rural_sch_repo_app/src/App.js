@@ -13,7 +13,7 @@ class App extends React.Component {
     return (
     <div className="App">
       <PrivateRoute  path='/'  component={Dashboard} />
-      <Route exact path='/login'  component={Onboarding} />
+      <Route  path='/login'  component={Onboarding} />
       
     </div>
     );

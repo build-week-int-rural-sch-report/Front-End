@@ -31,7 +31,7 @@ class Dashboard extends React.Component {
     render(){
         return(
             <div>
-                <nav>
+                <nav className='Navigation'>
                     <div className='navDev'>
                         <NavLink to='/issues' activeClassName="active" className='OnbordLink'>Issues Log</NavLink>
                     </div>
@@ -48,10 +48,10 @@ class Dashboard extends React.Component {
                     <Button color="danger" type='button' onClick={this.logout} className='LogoutButt'>Logout</Button>
                 </nav>
                 <Route exact path= '/' component={Welcompage} />
-                <Route exact path ='/issues' component={Issues} />
-                <Route exact path = '/teacherAtt' render={()=><TeacherAtt />} />
-                <Route path= '/issues/:id' render={(props) => <IssueByID {...props} />} />  
-                <Route path= '/issues/org/:org_id' render={(props) => <IssuesByOrg {...props} />} />  
+                <Route exact path= '/issues' component={Issues} />
+                <Route exact path= '/teacherAtt' render={()=><TeacherAtt />} />
+                <Route exact path= '/issues/:id' render={(props) => <IssueByID {...props} />} />  
+                <Route exact path= '/issues/org/:org_id' render={(props) => <IssuesByOrg {...props} />} />  
             </div>
         )
     }

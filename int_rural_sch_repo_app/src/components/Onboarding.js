@@ -1,8 +1,8 @@
 import React from 'react'
 import Login from './Login'
-import SignUp from './SignUp';
+import SignUp from './SignUp'
 
-function Onboarding() {
+function Onboarding(props) {
 return (
     <div className='Onboarding'>
         <Login />
