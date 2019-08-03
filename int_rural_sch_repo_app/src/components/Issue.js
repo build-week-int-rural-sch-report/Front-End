@@ -18,7 +18,7 @@ class Issue extends React.Component {
             .then((res) => {
     
                 this.props.updateIssues(res.data)
-                this.props.history.push('/')
+                this.props.history.push('/issues')
             })
             .catch((err) => {
                console.log(err)

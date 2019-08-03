@@ -8,7 +8,7 @@ const Welcompage = () => {
     return (
         <div className='welcome'>
             <h1>Welcome to International Rular School Report Dashboard</h1>
-            <img src={students} alt='Students' />
+            <img src={students} alt='Students' className='students' />
             <div>
                 <img src={solar} alt='solar panel' />
                 <p>Some of the schools used solar panel to generate power and supply electricity for the schools. Which reduce our schools dependency on utility providers and as well as lower the school bill.</p>

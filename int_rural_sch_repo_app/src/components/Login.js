@@ -8,7 +8,8 @@ class Login extends React.Component {
         super(props);
         this.state = {
             username : '',
-            password : ''
+            password : '',
+            error: ''
         }
     }
     
@@ -24,13 +25,17 @@ class Login extends React.Component {
         axios.post('https://irsr-be-dev.herokuapp.com/auth/login', login)
              .then((res)=>{localStorage.setItem('token', res.data.token)})
              .then(() => {this.props.history.push('/')})
-             .catch((err) => {console.log(err)})
+             .catch((err) => {
+                 this.setState({error : 'the login or passwored used is wrong'})
+                 console.log(err)
+                })
     }
 
     render() {
         return (
             <div>
                 <Jumbotron className='Login'>
+                    <h6>{this.state.error}</h6>
                     <h3>Sign in to IRSR</h3> 
                     <Form onSubmit={this.Login}>
                       <FormGroup>
