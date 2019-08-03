@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import Issue from './Issue'
+import { Jumbotron, Form, Input, Button,  Fade } from 'reactstrap';
 
 class Issues extends React.Component {
     constructor(){
@@ -11,7 +12,8 @@ class Issues extends React.Component {
             status_id: '',
             comments: '',
             org_id: '',
-            issue_status: []
+            issue_status: [],
+            fadeIn: true 
         }
     }
     componentDidMount(){
@@ -57,28 +59,39 @@ class Issues extends React.Component {
         
     }
 
+    toggle = () => {
+        this.setState({
+            fadeIn: !this.state.fadeIn
+        });
+    }
+
     render(){
-        return(<div>
+        return(<div className='Issues'>
                  
                  {this.state.issuesData.map((issue, index) => {return <Issue key={index} issue={issue} updateIssues={this.updateIssues} />})}
-                  <form onSubmit={this.submitHandler}>
-                  Issue's name :<input type='text'
-                           name='name'
-                           value={this.state.name}
-                           onChange={this.changeHandler} /> <br />
-                    status_name :<select name='status_id' value={this.state.status_id} onChange={this.changeHandler}>
-                               {this.state.issue_status.map((status)=>{return <option key={status.id}value={status.id}>{status.name}</option>})} 
-						    </select> <br />
-                    comments :<input type='text'
-                           name='comments'
-                           value={this.state.comments}
-                           onChange={this.changeHandler} /> <br />
-                    org_id :<input type='text'
-                           name='org_id'
-                           value={this.state.org_id}
-                           onChange={this.changeHandler} /> <br />          
-                    <button type='submit'>Add Issue</button>
-                  </form>
+                 <Button color="primary" onClick={this.toggle}>Toggle AddIssue</Button>
+                 <Fade in={this.state.fadeIn} tag="h5" >
+                    <Jumbotron className='AddIssue'>
+                        <Form onSubmit={this.submitHandler}>
+                            Issue's name :<Input type='text'
+                                name='name'
+                                value={this.state.name}
+                                onChange={this.changeHandler} /> <br />
+                            status_name :<Input type='select' name='status_id' value={this.state.status_id} onChange={this.changeHandler}>
+                                    {this.state.issue_status.map((status)=>{return <option key={status.id}value={status.id}>{status.name}</option>})} 
+                                    </Input> <br />
+                            comments :<Input type='text'
+                                name='comments'
+                                value={this.state.comments}
+                                onChange={this.changeHandler} /> <br />
+                            org_id :<Input type='text'
+                                name='org_id'
+                                value={this.state.org_id}
+                                onChange={this.changeHandler} /> <br />          
+                            <Button outline color="success" type='submit'>Add Issue</Button>
+                        </Form>
+                    </Jumbotron>
+                 </Fade>
                </div> 
         )
     }

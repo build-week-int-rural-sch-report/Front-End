@@ -4,7 +4,7 @@ import SignUp from './SignUp';
 
 function Onboarding() {
 return (
-    <div>
+    <div className='Onboarding'>
         <Login />
         <SignUp />
     </div>

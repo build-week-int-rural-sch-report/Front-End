@@ -24,7 +24,7 @@ class IssueByID extends React.Component {
             return <div>Loading issue by Id...</div>;
           }
         return(
-            <div>
+            <div className='IssueById'>
                <h3>id: {this.state.issueByID.id}</h3>
                <p><strong> name: {this.state.issueByID.name}</strong></p>
                <p>comments: {this.state.issueByID.comments}</p>

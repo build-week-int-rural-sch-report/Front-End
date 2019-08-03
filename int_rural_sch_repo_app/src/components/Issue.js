@@ -1,12 +1,10 @@
 import React from 'react'
 import { Link, withRouter} from 'react-router-dom'
 import axios from  'axios'
+import { Card, CardBody,CardHeader, Button, CardTitle, CardText } from 'reactstrap';
 
 class Issue extends React.Component {
-     constructor(props){
-         super(props)
-     }
-
+    
     deleteIssue = (e) => {
         e.preventDefault()
     
@@ -29,19 +27,25 @@ class Issue extends React.Component {
    render(){
        
     return(
-        <Link to={`/issues/${this.props.issue.id}`}>
-           <h3>id: {this.props.issue.id}</h3>
-           <p><strong> name: {this.props.issue.name}</strong></p>
-           <p>comments: {this.props.issue.comments}</p>
-           <h3>org_id: {this.props.issue.org_id}</h3>
-           <p><strong>org_name: {this.props.issue.org_name}</strong></p>
-           <p><strong>status_name: {this.props.issue.status_name}</strong><button>Edit</button></p>
-           <h3>created_by: {this.props.issue.created_by}</h3>
-           <h6>created_at: {this.props.issue.created_at}</h6>
-           <h4>updated_by: {this.props.issue.updated_by}</h4>
-           <h6> updated_at: {this.props.issue.updated_at}</h6>
-           <button type='button' onClick={this.deleteIssue}>Delete Issue</button>
+        
+        <Link to={`/issues/${this.props.issue.id}`} className='IssueLink'>
+            <Card className='IssueCard'>
+                <CardBody> 
+                    <CardHeader>id: {this.props.issue.id}</CardHeader>
+                    <CardTitle>name: {this.props.issue.name}</CardTitle>  
+                    <CardText>comments: {this.props.issue.comments}</CardText>
+                    <h6>org_id: {this.props.issue.org_id}</h6>
+                    <p><strong>org_name: {this.props.issue.org_name}</strong></p>
+                    <p><strong>status_name: {this.props.issue.status_name}</strong></p>
+                    <h5>created_by: {this.props.issue.created_by}</h5>
+                    <CardText><small>created_at: {this.props.issue.created_at}</small> </CardText>
+                    <h5>updated_by: {this.props.issue.updated_by}</h5>
+                    <CardText><small>updated_at: {this.props.issue.updated_at}</small> </CardText>
+                    <Button type='button' onClick={this.deleteIssue}>Delete Issue</Button>
+                </CardBody>
+            </Card>
         </Link>
+        
     )
  }
 }

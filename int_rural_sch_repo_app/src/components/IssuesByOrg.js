@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { Card, CardBody,CardHeader, CardTitle, CardText } from 'reactstrap';
 
 class IssuesByOrg extends React.Component {
     constructor(){
@@ -29,17 +30,21 @@ class IssuesByOrg extends React.Component {
             <div>
             {this.state.issuesByOrg.map((issue, index)=>{return (
             <div key={index}>
-               <h3>id: {issue.id}</h3>
-               <p><strong> name: {issue.name}</strong></p>
-               <p>comments: {issue.comments}</p>
-               <h3>org_id: {issue.org_id}</h3>
-               <p><strong>org_name: {issue.org_name}</strong></p>
-               <p><strong>status_id: {issue.status_id}</strong></p>
-               <p><strong>status_name: {issue.status_name}</strong></p>
-               <h3>created_by: {issue.created_by}</h3>
-               <h6>created_at: {issue.created_at}</h6>
-               <h4>updated_by: {issue.updated_by}</h4>
-               <h6>updated_at: {issue.updated_at}</h6>
+                <Card className='IssueCard'>
+                  <CardBody> 
+                    <CardHeader>id: {issue.id}</CardHeader>
+                    <CardTitle>name: {issue.name}</CardTitle>  
+                    <CardText>comments: {issue.comments}</CardText>
+                    <h6>org_id: {issue.org_id}</h6>
+                    <p><strong>org_name: {issue.org_name}</strong></p>
+                    <h6>status_id: {issue.status_id}</h6>
+                    <p><strong>status_name: {issue.status_name}</strong></p>
+                    <h5>created_by: {issue.created_by}</h5>
+                    <CardText><small>created_at: {issue.created_at}</small> </CardText>
+                    <h5>updated_by: {issue.updated_by}</h5>
+                    <CardText><small>updated_at: {issue.updated_at}</small> </CardText>
+                  </CardBody>
+                </Card>
             </div>
             )})}
             </div>

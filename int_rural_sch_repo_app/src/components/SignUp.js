@@ -1,5 +1,7 @@
 import React from 'react'
 import axios from 'axios'
+import { Jumbotron, Form, Input, Button } from 'reactstrap'
+
 class SignUp extends React.Component {
     constructor() {
         super();
@@ -54,38 +56,40 @@ class SignUp extends React.Component {
     render() {
         return (
             <div>
+              <Jumbotron className='Signup'>
                 <h2>Create a New Account</h2>
-                <form onSubmit={this.signUp}>
-                    username:<input type='text'
+                <Form onSubmit={this.signUp}>
+                    username:<Input type='text'
                         name='username'
                         value={this.state.username}
-                        onChange={this.changeHandler} /> <br />
-                    password:<input type='password'
+                        onChange={this.changeHandler} />
+                    password:<Input type='password'
                         name='password'
                         value={this.state.password}
-                        onChange={this.changeHandler} /> <br />
-                    name: <input type='text'
+                        onChange={this.changeHandler} />
+                    name: <Input type='text'
                         name='name'
                         value={this.state.name}
-                        onChange={this.changeHandler} /> <br />
+                        onChange={this.changeHandler} />
                     
-                    role_name:<select name='role_id' value={this.state.role_id} onChange={this.changeHandler}>
+                    role_name:<Input type="select" name='role_id' value={this.state.role_id} onChange={this.changeHandler}>
                                {this.state.rolesData.map((role)=>{return <option key={role.id}value={role.id}>{role.name}</option>})} 
-						    </select> <br />
-                    org_name: <select name='org_id' value={this.state.org_id} onChange={this.changeHandler}>
+						    </Input>
+                    org_name: <Input type="select" name='org_id' value={this.state.org_id} onChange={this.changeHandler}>
 						       {this.state.orgData.map((org)=>{return <option key={org.id}value={org.id}>{org.name}</option>})} 
-						    </select> <br />
+						    </Input>
                     
-                    email:<input type='text'
+                    email:<Input type='text'
                         name='email'
                         value={this.state.email}
-                        onChange={this.changeHandler} /> <br />
-                    phone:<input type='text'
+                        onChange={this.changeHandler} />
+                    phone:<Input type='text'
                         name='phone'
                         value={this.state.phone}
                         onChange={this.changeHandler} /> <br />
-                    <button type='submit'>SignUp</button>
-                </form>
+                    <Button color="success" size="lg" type='submit' className='SignupButt'>Sign Up</Button>
+                </Form>
+              </Jumbotron>
             </div>
         )
     }

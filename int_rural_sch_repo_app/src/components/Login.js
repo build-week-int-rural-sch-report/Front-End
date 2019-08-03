@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
+import { Jumbotron, Form, FormGroup, Input, Button } from 'reactstrap';
 
 class Login extends React.Component {
     constructor(props){
@@ -29,20 +30,25 @@ class Login extends React.Component {
     render() {
         return (
             <div>
-              <h3>Sign in to International Rural School Report</h3>
-              <form onSubmit={this.Login}>
-                <input type='text' 
-                       name='username' 
-                       placeholder='username' 
-                       value={this.state.username} 
-                       onChange={this.changeHandler} />
-                <input type='password' 
-                       name='password' 
-                       placeholder='password' 
-                       value={this.state.password} 
-                       onChange={this.changeHandler} />
-                <button type='submit'>SignIn</button>
-              </form>
+                <Jumbotron className='Login'>
+                    <h3>Sign in to IRSR</h3> 
+                    <Form onSubmit={this.Login}>
+                      <FormGroup>
+                        <Input type='text' 
+                            name='username' 
+                            placeholder='username' 
+                            value={this.state.username} 
+                            onChange={this.changeHandler} /> <br />
+                        <Input type='password' 
+                            name='password' 
+                            placeholder='password' 
+                            value={this.state.password} 
+                            onChange={this.changeHandler} /><br />
+                        <Button color="primary" type='submit' className='Loginbutton'>Sign In</Button>
+                      </FormGroup>
+                    </Form>
+        
+                </Jumbotron>
             </div>
         )
     }
