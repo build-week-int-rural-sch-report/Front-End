@@ -20,7 +20,7 @@ const Welcompage = () => {
                 <img src={solar} alt='solar panel' className='WelcomeImage' />
                 <p className='WelcomeP'>Some of the schools used solar panel to generate power and supply electricity for the schools. Which reduce our schools dependency on utility providers and as well as lower the school bill.</p>
             </div>
-            <div className='Welcomediv'>
+            <div className='WelcomedivComp'>
                 <p className='WelcomeP'>Computers and laptops are provided for 90% of the rural schools . Rural students benefit from the connectedness of technology. By allowing for an online network of people from almost anywhere in the world, technology opens up a world of potential for students to network and gain valuable friendships. </p>
                 <img src={techno} alt='computers' className='WelcomeImage' />
             </div>

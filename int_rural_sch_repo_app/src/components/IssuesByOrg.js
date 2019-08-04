@@ -27,7 +27,7 @@ class IssuesByOrg extends React.Component {
             return <div>Loading issues by org...</div>;
           }
         return(
-            <div>
+            <div className='Issues'>
             {this.state.issuesByOrg.map((issue, index)=>{return (
             <div key={index}>
                 <Card className='IssueCard'>

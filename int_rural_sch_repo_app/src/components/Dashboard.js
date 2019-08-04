@@ -5,13 +5,14 @@ import IssueByID from './IssueByID'
 import IssuesByOrg from './IssuesByOrg'
 import TeacherAtt from './TeacherAtt'
 import Welcompage from './Welcompage'
-import {  Button } from 'reactstrap';
+import {  Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 class Dashboard extends React.Component {
     constructor(){
         super()
         this.state = {
-            org_id: ''
+            org_id: '',
+            dropdownOpen: false
         }
     }
     changeHandler = (e)=>{
@@ -26,26 +27,41 @@ class Dashboard extends React.Component {
         localStorage.removeItem('org_name')
         localStorage.removeItem('role_name')
 		this.props.history.push('/login')
-	}
+    }
+    
+    toggle = () => {
+        this.setState({
+          dropdownOpen: true
+        });
+      }
 
     render(){
         return(
             <div>
                 <nav className='Navigation'>
-                    <div className='navDev'>
-                        <NavLink to='/issues' activeClassName="active" className='OnbordLink'>Issues Log</NavLink>
-                    </div>
-                    <div>
-                         <NavLink to={`/issues/org/${this.state.org_id}`} activeClassName="active" className='OnbordLink' >Issues By Org_Id </NavLink>
+                <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                <DropdownToggle caret color="info">
+                   Menu
+                </DropdownToggle> 
+                <DropdownMenu className='DashbordMenu'>
+                    <DropdownItem>
+                        <NavLink to='/issues' activeClassName="active" className='DashboardLink'>Issues Log</NavLink>
+                    </DropdownItem>
+                    <DropdownItem>
+                         <NavLink to={`/issues/org/${this.state.org_id}`} activeClassName="active" className='DashboardLink' >Issues By Org_Id </NavLink>
                          <input  type='text' className='Org_Id'
                            name='name'
                            value={this.state.org_id}
                            onChange={this.changeHandler}  />
-                    </div>
-                    <div>
-                         <NavLink to='/teacherAtt' activeClassName="active" className='OnbordLink'>Teacher attendance</NavLink>
-                    </div>                   
-                    <Button color="danger" type='button' onClick={this.logout} className='LogoutButt'>Logout</Button>
+                    </DropdownItem>
+                    <DropdownItem>
+                         <NavLink to='/teacherAtt' activeClassName="active" className='DashboardLink'>Teacher attendance</NavLink>
+                    </DropdownItem> 
+                    <DropdownItem onClick={this.logout} className='LogoutButt'>
+                        Logout
+                    </DropdownItem> 
+                </DropdownMenu>
+                </Dropdown>
                 </nav>
                 <Route exact path= '/' component={Welcompage} />
                 <Route exact path= '/issues' component={Issues} />

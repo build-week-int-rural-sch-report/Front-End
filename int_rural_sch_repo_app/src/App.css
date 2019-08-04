@@ -6,6 +6,7 @@
 
 .Onboarding {
   background-color: ghostwhite;
+  padding: 4%;
 }
 
 .Login {
@@ -16,14 +17,16 @@
 
 .Signup {
   width : 40%;
-  margin:2% auto;
+  margin:0 auto;
   
 }
 .SignupButt {
-  margin-left: 35%
+  margin-left: 25%
 }
 
 .Issues {
+  padding-top: 4%;
+  padding-left: 2%;
   background: rgb(234, 250, 252);
 }
 
@@ -41,9 +44,9 @@
   padding: 0 5%;
 }
 
-.OnbordLink {
+.DashboardLink {
   text-decoration: none;
-  color:white;
+  color: black;
 }
 .Navigation {
   width: 100%;
@@ -56,17 +59,17 @@
   box-shadow: 0px 16px 32px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
+.DashbordMenu {
+ width:18%;
+}
 
 .active {
   background-color: rgb(147, 147, 253);
 }
 
 .Org_Id {
-  background: rgb(155, 118, 24);
-}
-
-.LogoutButt {
-  width: 10%;
+  width: 15%;
+  background: rgb(241, 241, 238);
 }
 
 .AddIssue{
@@ -78,7 +81,7 @@
   width: 95%;
   box-shadow: 0px 16px 32px 0px rgba(247, 217, 217, 0.2);
   z-index: 1;
-  margin: 2%;
+  margin: 4%;
   border: 1.4px solid grey;
   padding: 2%;
   border-radius: 10px;
@@ -110,6 +113,12 @@
   display: flex;
   justify-content: space-between;
 }
+.WelcomedivComp {
+  width: 90%;
+  margin: 1% auto;
+  display: flex;
+  justify-content: space-between;
+}
 
 .WelcomeP {
   width: 45%;
@@ -131,15 +140,40 @@
   
 .Login {
   width : 90%;
-  margin:0% auto;
+  margin:2% auto;
   text-align: center
 }
 
 .Signup {
   width : 90%;
-  margin:2% auto;
+  margin:0 auto;
   
 }
+
+.Navigation {
+  height: 130px;
+  background-size: 300px 130px;
+}
+
+.DashbordMenu {
+  width:45%;
+ }
+
+ .Org_Id {
+  width: 15%;
+}
+
+.LogoutButt {
+  width: 65%;
+}
+
+.Issues {
+  padding-top: 12%;
+}
+.IssueById {
+  margin-top: 18%;
+}
+
 
 .IssueCard {
   width: 90%;
@@ -152,18 +186,34 @@
 .Welcomediv {
   width: 90%;
   margin: 1% auto;
-  display: inline-block;
-  
+  flex-direction: column-reverse;
+}
+.WelcomedivComp {
+  width: 90%;
+  margin: 1% auto;
+  flex-direction: column;
 }
 
 .WelcomeP {
+  text-align: center;
   width: 80%;
-  padding:2%
+  padding:2%;
+  margin: 1% auto;
+  border: 1px solid rgb(247, 245, 245);
 }
 
 .WelcomeImage {
   width: 80%;
   border-radius: 2%;
+  margin: 1% auto;
 }
+.students {
+  width: 100%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  height: 250px;
+  border-radius: 5%
+}
+
 
 }
