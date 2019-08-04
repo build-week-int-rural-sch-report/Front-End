@@ -6,7 +6,7 @@
 
 .Onboarding {
   background-color: ghostwhite;
-  padding: 4%;
+  padding: 2%;
 }
 
 .Login {
@@ -140,7 +140,7 @@
   
 .Login {
   width : 90%;
-  margin:2% auto;
+  margin:0 auto;
   text-align: center
 }
 
