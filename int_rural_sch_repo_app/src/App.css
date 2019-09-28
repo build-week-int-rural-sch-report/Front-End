@@ -5,8 +5,21 @@
 }
 
 .Onboarding {
+  text-align: center;
   background-color: ghostwhite;
-  padding: 2%;
+  padding: 4%;
+  height: 100vh;
+}
+
+.signinup {
+  font-size: 1.5rem;
+  border: 1.4px solid black;
+  border-radius: 5%;
+  padding-right: 2%;
+  padding-left: 2%;
+  margin: 2%;
+  z-index: 1;
+  background-color: aqua;
 }
 
 .Login {
